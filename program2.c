@@ -1,18 +1,27 @@
 #include <stdio.h>
 
 int main() {
-    int n, reverse = 0, digit;
+    int start, end, i, j, prime;
 
-    printf("Enter a number: ");
-    scanf("%d", &n);
+    printf("Enter start and end: ");
+    scanf("%d%d", &start, &end);
 
-    while (n != 0) {
-        digit = n % 10;
-        reverse = reverse * 10 + digit;
-        n /= 10;
+    for (i = start; i <= end; i++) {
+        if (i <= 1)
+            continue;
+
+        prime = 1;
+
+        for (j = 2; j <= i / 2; j++) {
+            if (i % j == 0) {
+                prime = 0;
+                break;
+            }
+        }
+
+        if (prime)
+            printf("%d ", i);
     }
-
-    printf("Reversed number = %d", reverse);
 
     return 0;
 }

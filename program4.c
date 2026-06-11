@@ -1,23 +1,20 @@
 #include <stdio.h>
 
 int main() {
-    int n, temp, reverse = 0, digit;
+    int a, b, max;
 
-    printf("Enter a number: ");
-    scanf("%d", &n);
+    printf("Enter two numbers: ");
+    scanf("%d%d", &a, &b);
 
-    temp = n;
+    max = (a > b) ? a : b;
 
-    while (n != 0) {
-        digit = n % 10;
-        reverse = reverse * 10 + digit;
-        n = n / 10;
+    while (1) {
+        if (max % a == 0 && max % b == 0) {
+            printf("LCM = %d", max);
+            break;
+        }
+        max++;
     }
-
-    if (temp == reverse)
-        printf("Palindrome Number");
-    else
-        printf("Not a Palindrome Number");
 
     return 0;
 }
