@@ -1,19 +1,25 @@
 #include <stdio.h>
 
 int main() {
-    int a, b, max;
+    int start, end, num, temp, rem, sum;
 
-    printf("Enter two numbers: ");
-    scanf("%d%d", &a, &b);
+    printf("Enter start and end: ");
+    scanf("%d %d", &start, &end);
 
-    max = (a > b) ? a : b;
+    printf("Armstrong numbers are:\n");
 
-    while (1) {
-        if (max % a == 0 && max % b == 0) {
-            printf("LCM = %d", max);
-            break;
+    for(num = start; num <= end; num++) {
+        temp = num;
+        sum = 0;
+
+        while(temp != 0) {
+            rem = temp % 10;
+            sum += rem * rem * rem;
+            temp /= 10;
         }
-        max++;
+
+        if(sum == num)
+            printf("%d ", num);
     }
 
     return 0;

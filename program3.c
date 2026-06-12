@@ -1,17 +1,23 @@
 #include <stdio.h>
 
 int main() {
-    int a, b, gcd, i;
+    int num, temp, rem, sum = 0;
 
-    printf("Enter two numbers: ");
-    scanf("%d%d", &a, &b);
+    printf("Enter a number: ");
+    scanf("%d", &num);
 
-    for (i = 1; i <= a && i <= b; i++) {
-        if (a % i == 0 && b % i == 0)
-            gcd = i;
+    temp = num;
+
+    while(temp != 0) {
+        rem = temp % 10;
+        sum += rem * rem * rem;
+        temp /= 10;
     }
 
-    printf("GCD = %d", gcd);
+    if(sum == num)
+        printf("%d is an Armstrong number", num);
+    else
+        printf("%d is not an Armstrong number", num);
 
     return 0;
 }

@@ -1,26 +1,22 @@
 #include <stdio.h>
 
 int main() {
-    int start, end, i, j, prime;
+    int n, a = 0, b = 1, c;
 
-    printf("Enter start and end: ");
-    scanf("%d%d", &start, &end);
+    printf("Enter n: ");
+    scanf("%d", &n);
 
-    for (i = start; i <= end; i++) {
-        if (i <= 1)
-            continue;
-
-        prime = 1;
-
-        for (j = 2; j <= i / 2; j++) {
-            if (i % j == 0) {
-                prime = 0;
-                break;
-            }
+    if(n == 1)
+        printf("Nth Fibonacci term = %d", a);
+    else if(n == 2)
+        printf("Nth Fibonacci term = %d", b);
+    else {
+        for(int i = 3; i <= n; i++) {
+            c = a + b;
+            a = b;
+            b = c;
         }
-
-        if (prime)
-            printf("%d ", i);
+        printf("Nth Fibonacci term = %d", b);
     }
 
     return 0;
