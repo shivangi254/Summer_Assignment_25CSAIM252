@@ -1,17 +1,20 @@
 #include <stdio.h>
 
 int main() {
-    int n, a = 0, b = 1, c;
+    int n, i, sum = 0;
 
-    printf("Enter number of terms: ");
+    printf("Enter a number: ");
     scanf("%d", &n);
 
-    for(int i = 1; i <= n; i++) {
-        printf("%d ", a);
-        c = a + b;
-        a = b;
-        b = c;
+    for(i = 1; i < n; i++) {
+        if(n % i == 0)
+            sum += i;
     }
+
+    if(sum == n)
+        printf("%d is a Perfect Number", n);
+    else
+        printf("%d is not a Perfect Number", n);
 
     return 0;
 }

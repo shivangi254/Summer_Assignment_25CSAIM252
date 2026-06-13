@@ -1,26 +1,20 @@
 #include <stdio.h>
 
 int main() {
-    int start, end, num, temp, rem, sum;
+    long long n;
+    int largest = 0, i;
 
-    printf("Enter start and end: ");
-    scanf("%d %d", &start, &end);
+    printf("Enter a number: ");
+    scanf("%lld", &n);
 
-    printf("Armstrong numbers are:\n");
-
-    for(num = start; num <= end; num++) {
-        temp = num;
-        sum = 0;
-
-        while(temp != 0) {
-            rem = temp % 10;
-            sum += rem * rem * rem;
-            temp /= 10;
+    for(i = 2; i <= n; i++) {
+        while(n % i == 0) {
+            largest = i;
+            n = n / i;
         }
-
-        if(sum == num)
-            printf("%d ", num);
     }
+
+    printf("Largest Prime Factor = %d", largest);
 
     return 0;
 }
