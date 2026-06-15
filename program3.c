@@ -1,19 +1,20 @@
 #include <stdio.h>
 
-int main() {
-    int n, count = 0;
+int sumDigits(int n)
+{
+    if (n == 0)
+        return 0;
+
+    return (n % 10) + sumDigits(n / 10);
+}
+
+int main()
+{
+    int n;
 
     printf("Enter a number: ");
     scanf("%d", &n);
 
-    while (n > 0) {
-        if (n % 2 == 1)
-            count++;
-
-        n = n / 2;
-    }
-
-    printf("Number of set bits = %d", count);
-
+    printf("Sum of digits = %d", sumDigits(n));
     return 0;
 }

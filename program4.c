@@ -1,20 +1,25 @@
 #include <stdio.h>
 
-int main() {
-    int x, n;
-    long long result = 1;
+int reverse = 0;
 
-    printf("Enter base (x): ");
-    scanf("%d", &x);
+void reverseNumber(int n)
+{
+    if (n == 0)
+        return;
 
-    printf("Enter power (n): ");
+    reverse = reverse * 10 + n % 10;
+    reverseNumber(n / 10);
+}
+
+int main()
+{
+    int n;
+
+    printf("Enter a number: ");
     scanf("%d", &n);
 
-    for (int i = 1; i <= n; i++) {
-        result = result * x;
-    }
+    reverseNumber(n);
 
-    printf("%d^%d = %lld", x, n, result);
-
+    printf("Reversed Number = %d", reverse);
     return 0;
 }
