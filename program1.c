@@ -1,16 +1,14 @@
 #include <stdio.h>
 
-int factorial(int n) {
-    if (n == 0 || n == 1)
-        return 1;
-    return n * factorial(n - 1);
-}
-
 int main() {
-    int n;
-    printf("Enter a number: ");
-    scanf("%d", &n);
+    int i, j;
 
-    printf("Factorial = %d", factorial(n));
+    for(i = 1; i <= 5; i++) {
+        for(j = 1; j <= i; j++) {
+            printf("*");
+        }
+        printf("\n");
+    }
+
     return 0;
 }
