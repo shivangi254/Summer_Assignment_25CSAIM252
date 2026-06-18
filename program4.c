@@ -1,15 +1,15 @@
 #include <stdio.h>
 
 int main() {
-    int i, j;
+    int i, j, n = 5;
 
-    for(i = 1; i <= 5; i++) {
-        for(j = 1; j <= 5; j++) {
-            if(i == 1 || i == 5 || j == 1 || j == 5)
-                printf("*");
-            else
-                printf(" ");
-        }
+    for(i = 1; i <= n; i++) {
+        for(j = 0; j < i; j++)
+            printf("%c", 'A' + j);
+
+        for(j = i - 2; j >= 0; j--)
+            printf("%c", 'A' + j);
+
         printf("\n");
     }
 
