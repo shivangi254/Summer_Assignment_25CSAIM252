@@ -1,17 +1,18 @@
 #include <stdio.h>
 
-int main() {
-    int i, j, n = 5;
+int sum(int a, int b)
+{
+    return a + b;
+}
 
-    for(i = 1; i <= n; i++) {
-        for(j = 1; j <= n - i; j++)
-            printf(" ");
+int main()
+{
+    int a, b;
 
-        for(j = 1; j <= (2 * i - 1); j++)
-            printf("*");
+    printf("Enter two numbers: ");
+    scanf("%d %d", &a, &b);
 
-        printf("\n");
-    }
+    printf("Sum = %d", sum(a, b));
 
     return 0;
 }

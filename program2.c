@@ -1,17 +1,21 @@
 #include <stdio.h>
 
-int main() {
-    int i, j, n = 5;
+int maximum(int a, int b)
+{
+    if (a > b)
+        return a;
+    else
+        return b;
+}
 
-    for(i = n; i >= 1; i--) {
-        for(j = 1; j <= n - i; j++)
-            printf(" ");
+int main()
+{
+    int a, b;
 
-        for(j = 1; j <= (2 * i - 1); j++)
-            printf("*");
+    printf("Enter two numbers: ");
+    scanf("%d %d", &a, &b);
 
-        printf("\n");
-    }
+    printf("Maximum = %d", maximum(a, b));
 
     return 0;
 }
