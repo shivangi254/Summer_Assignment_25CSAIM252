@@ -1,26 +1,29 @@
 #include <stdio.h>
 
-long long factorial(int n)
+int perfect(int n)
 {
-    long long fact = 1;
-    int i;
+    int sum = 0, i;
 
-    for (i = 1; i <= n; i++)
+    for(i = 1; i < n; i++)
     {
-        fact = fact * i;
+        if(n % i == 0)
+            sum += i;
     }
 
-    return fact;
+    return (sum == n);
 }
 
 int main()
 {
-    int n;
+    int num;
 
     printf("Enter a number: ");
-    scanf("%d", &n);
+    scanf("%d", &num);
 
-    printf("Factorial = %lld", factorial(n));
+    if(perfect(num))
+        printf("Perfect Number");
+    else
+        printf("Not a Perfect Number");
 
     return 0;
 }
