@@ -1,29 +1,22 @@
 #include <stdio.h>
 
-int armstrong(int n)
-{
-    int sum = 0, temp = n, rem;
+int main() {
+    int arr[100], n, i, sum = 0;
+    float avg;
 
-    while(temp != 0)
-    {
-        rem = temp % 10;
-        sum += rem * rem * rem;
-        temp /= 10;
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+
+    printf("Enter elements:\n");
+    for(i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+        sum += arr[i];
     }
 
-    return (sum == n);
-}
+    avg = (float)sum / n;
 
-int main()
-{
-    int num;
-    printf("Enter a number: ");
-    scanf("%d", &num);
-
-    if(armstrong(num))
-        printf("Armstrong Number");
-    else
-        printf("Not an Armstrong Number");
+    printf("Sum = %d\n", sum);
+    printf("Average = %.2f\n", avg);
 
     return 0;
 }

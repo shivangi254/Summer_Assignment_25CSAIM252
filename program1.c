@@ -1,29 +1,20 @@
 #include <stdio.h>
 
-int palindrome(int n)
-{
-    int rev = 0, temp = n, rem;
+int main() {
+    int arr[100], n, i;
 
-    while(temp != 0)
-    {
-        rem = temp % 10;
-        rev = rev * 10 + rem;
-        temp = temp / 10;
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+
+    printf("Enter elements:\n");
+    for(i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
     }
 
-    return (rev == n);
-}
-
-int main()
-{
-    int num;
-    printf("Enter a number: ");
-    scanf("%d", &num);
-
-    if(palindrome(num))
-        printf("Palindrome Number");
-    else
-        printf("Not a Palindrome Number");
+    printf("Array elements are:\n");
+    for(i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
 
     return 0;
 }

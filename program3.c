@@ -1,26 +1,29 @@
 #include <stdio.h>
 
-void fibonacci(int n)
-{
-    int a = 0, b = 1, c, i;
+int main() {
+    int arr[100], n, i;
+    int largest, smallest;
 
-    for(i = 1; i <= n; i++)
-    {
-        printf("%d ", a);
-        c = a + b;
-        a = b;
-        b = c;
-    }
-}
-
-int main()
-{
-    int n;
-
-    printf("Enter number of terms: ");
+    printf("Enter number of elements: ");
     scanf("%d", &n);
 
-    fibonacci(n);
+    printf("Enter elements:\n");
+    for(i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+    largest = smallest = arr[0];
+
+    for(i = 1; i < n; i++) {
+        if(arr[i] > largest)
+            largest = arr[i];
+
+        if(arr[i] < smallest)
+            smallest = arr[i];
+    }
+
+    printf("Largest = %d\n", largest);
+    printf("Smallest = %d\n", smallest);
 
     return 0;
 }

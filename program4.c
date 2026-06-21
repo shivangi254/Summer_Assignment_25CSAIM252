@@ -1,29 +1,26 @@
 #include <stdio.h>
 
-int perfect(int n)
-{
-    int sum = 0, i;
+int main() {
+    int arr[100], n, i;
+    int even = 0, odd = 0;
 
-    for(i = 1; i < n; i++)
-    {
-        if(n % i == 0)
-            sum += i;
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+
+    printf("Enter elements:\n");
+    for(i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
     }
 
-    return (sum == n);
-}
+    for(i = 0; i < n; i++) {
+        if(arr[i] % 2 == 0)
+            even++;
+        else
+            odd++;
+    }
 
-int main()
-{
-    int num;
-
-    printf("Enter a number: ");
-    scanf("%d", &num);
-
-    if(perfect(num))
-        printf("Perfect Number");
-    else
-        printf("Not a Perfect Number");
+    printf("Even elements = %d\n", even);
+    printf("Odd elements = %d\n", odd);
 
     return 0;
 }
