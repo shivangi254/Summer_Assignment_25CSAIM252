@@ -1,29 +1,30 @@
 #include <stdio.h>
 
 int main() {
-    int arr[100], n, i;
-    int largest, smallest;
+    int n, i;
 
     printf("Enter number of elements: ");
     scanf("%d", &n);
 
-    printf("Enter elements:\n");
+    int arr[n];
+
+    printf("Enter array elements:\n");
     for(i = 0; i < n; i++) {
         scanf("%d", &arr[i]);
     }
 
-    largest = smallest = arr[0];
+    int largest = arr[0], second = arr[0];
 
     for(i = 1; i < n; i++) {
-        if(arr[i] > largest)
+        if(arr[i] > largest) {
+            second = largest;
             largest = arr[i];
-
-        if(arr[i] < smallest)
-            smallest = arr[i];
+        } else if(arr[i] > second && arr[i] != largest) {
+            second = arr[i];
+        }
     }
 
-    printf("Largest = %d\n", largest);
-    printf("Smallest = %d\n", smallest);
+    printf("Second largest element = %d", second);
 
     return 0;
 }
