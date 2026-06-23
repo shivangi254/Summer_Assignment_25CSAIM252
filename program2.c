@@ -1,27 +1,27 @@
 #include <stdio.h>
 
 int main() {
-    int n, i, key, count = 0;
+    int n, i, first;
 
-    printf("Enter number of elements: ");
+    printf("Enter size of array: ");
     scanf("%d", &n);
 
     int arr[n];
 
-    printf("Enter array elements:\n");
-    for(i = 0; i < n; i++) {
+    printf("Enter elements:\n");
+    for(i = 0; i < n; i++)
         scanf("%d", &arr[i]);
-    }
 
-    printf("Enter element to find frequency: ");
-    scanf("%d", &key);
+    first = arr[0];
 
-    for(i = 0; i < n; i++) {
-        if(arr[i] == key)
-            count++;
-    }
+    for(i = 0; i < n - 1; i++)
+        arr[i] = arr[i + 1];
 
-    printf("Frequency of %d = %d", key, count);
+    arr[n - 1] = first;
+
+    printf("Array after left rotation: ");
+    for(i = 0; i < n; i++)
+        printf("%d ", arr[i]);
 
     return 0;
 }

@@ -1,28 +1,32 @@
 #include <stdio.h>
 
 int main() {
-    int n, i, j;
+    int n, i, j = 0;
 
-    printf("Enter number of elements: ");
+    printf("Enter size of array: ");
     scanf("%d", &n);
 
     int arr[n];
 
-    printf("Enter array elements:\n");
-    for(i = 0; i < n; i++) {
+    printf("Enter elements:\n");
+    for(i = 0; i < n; i++)
         scanf("%d", &arr[i]);
-    }
-
-    printf("Duplicate elements are:\n");
 
     for(i = 0; i < n; i++) {
-        for(j = i + 1; j < n; j++) {
-            if(arr[i] == arr[j]) {
-                printf("%d ", arr[i]);
-                break;
-            }
+        if(arr[i] != 0) {
+            arr[j] = arr[i];
+            j++;
         }
     }
+
+    while(j < n) {
+        arr[j] = 0;
+        j++;
+    }
+
+    printf("Array after moving zeroes: ");
+    for(i = 0; i < n; i++)
+        printf("%d ", arr[i]);
 
     return 0;
 }
