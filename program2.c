@@ -1,33 +1,39 @@
 #include <stdio.h>
 
 int main() {
-    int n, i, j, maxCount = 0, element;
+    int a[50], b[50], unionArr[100];
+    int n1, n2, i, j, k = 0, found;
 
-    printf("Enter size of array: ");
-    scanf("%d", &n);
+    printf("Enter size of first array: ");
+    scanf("%d", &n1);
 
-    int arr[n];
+    for(i = 0; i < n1; i++)
+        scanf("%d", &a[i]);
 
-    printf("Enter elements: ");
-    for(i = 0; i < n; i++) {
-        scanf("%d", &arr[i]);
+    printf("Enter size of second array: ");
+    scanf("%d", &n2);
+
+    for(i = 0; i < n2; i++)
+        scanf("%d", &b[i]);
+
+    for(i = 0; i < n1; i++)
+        unionArr[k++] = a[i];
+
+    for(i = 0; i < n2; i++) {
+        found = 0;
+        for(j = 0; j < k; j++) {
+            if(b[i] == unionArr[j]) {
+                found = 1;
+                break;
+            }
+        }
+        if(!found)
+            unionArr[k++] = b[i];
     }
 
-    for(i = 0; i < n; i++) {
-        int count = 1;
-        for(j = i + 1; j < n; j++) {
-            if(arr[i] == arr[j])
-                count++;
-        }
-
-        if(count > maxCount) {
-            maxCount = count;
-            element = arr[i];
-        }
-    }
-
-    printf("Maximum Frequency Element = %d\n", element);
-    printf("Frequency = %d\n", maxCount);
+    printf("Union Array: ");
+    for(i = 0; i < k; i++)
+        printf("%d ", unionArr[i]);
 
     return 0;
 }
