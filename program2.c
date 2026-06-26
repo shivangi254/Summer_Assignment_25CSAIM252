@@ -1,39 +1,30 @@
 #include <stdio.h>
 
 int main() {
-    int a[50], b[50], unionArr[100];
-    int n1, n2, i, j, k = 0, found;
+    int a[100], n, i, j, min, temp;
 
-    printf("Enter size of first array: ");
-    scanf("%d", &n1);
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
 
-    for(i = 0; i < n1; i++)
+    printf("Enter elements:\n");
+    for(i = 0; i < n; i++)
         scanf("%d", &a[i]);
 
-    printf("Enter size of second array: ");
-    scanf("%d", &n2);
-
-    for(i = 0; i < n2; i++)
-        scanf("%d", &b[i]);
-
-    for(i = 0; i < n1; i++)
-        unionArr[k++] = a[i];
-
-    for(i = 0; i < n2; i++) {
-        found = 0;
-        for(j = 0; j < k; j++) {
-            if(b[i] == unionArr[j]) {
-                found = 1;
-                break;
-            }
+    for(i = 0; i < n - 1; i++) {
+        min = i;
+        for(j = i + 1; j < n; j++) {
+            if(a[j] < a[min])
+                min = j;
         }
-        if(!found)
-            unionArr[k++] = b[i];
+
+        temp = a[i];
+        a[i] = a[min];
+        a[min] = temp;
     }
 
-    printf("Union Array: ");
-    for(i = 0; i < k; i++)
-        printf("%d ", unionArr[i]);
+    printf("Sorted array:\n");
+    for(i = 0; i < n; i++)
+        printf("%d ", a[i]);
 
     return 0;
 }
