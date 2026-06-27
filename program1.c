@@ -1,28 +1,30 @@
 #include <stdio.h>
 
 int main() {
-    int a[100], n, i, j, temp;
+    int a[10][10], b[10][10], sum[10][10];
+    int r, c, i, j;
 
-    printf("Enter number of elements: ");
-    scanf("%d", &n);
+    printf("Enter rows and columns: ");
+    scanf("%d %d", &r, &c);
 
-    printf("Enter elements:\n");
-    for(i = 0; i < n; i++)
-        scanf("%d", &a[i]);
+    printf("Enter elements of first matrix:\n");
+    for(i = 0; i < r; i++)
+        for(j = 0; j < c; j++)
+            scanf("%d", &a[i][j]);
 
-    for(i = 0; i < n - 1; i++) {
-        for(j = 0; j < n - i - 1; j++) {
-            if(a[j] > a[j + 1]) {
-                temp = a[j];
-                a[j] = a[j + 1];
-                a[j + 1] = temp;
-            }
+    printf("Enter elements of second matrix:\n");
+    for(i = 0; i < r; i++)
+        for(j = 0; j < c; j++)
+            scanf("%d", &b[i][j]);
+
+    printf("Sum of matrices:\n");
+    for(i = 0; i < r; i++) {
+        for(j = 0; j < c; j++) {
+            sum[i][j] = a[i][j] + b[i][j];
+            printf("%d ", sum[i][j]);
         }
+        printf("\n");
     }
-
-    printf("Sorted array:\n");
-    for(i = 0; i < n; i++)
-        printf("%d ", a[i]);
 
     return 0;
 }

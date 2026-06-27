@@ -1,28 +1,21 @@
 #include <stdio.h>
 
 int main() {
-    int a[100], n, i, j, temp;
+    int a[10][10];
+    int i, j, n, sum = 0;
 
-    printf("Enter number of elements: ");
+    printf("Enter order of square matrix: ");
     scanf("%d", &n);
 
-    printf("Enter elements:\n");
-    for(i = 0; i < n; i++)
-        scanf("%d", &a[i]);
+    printf("Enter matrix:\n");
+    for(i=0; i<n; i++)
+        for(j=0; j<n; j++)
+            scanf("%d", &a[i][j]);
 
-    for(i = 0; i < n - 1; i++) {
-        for(j = i + 1; j < n; j++) {
-            if(a[i] < a[j]) {
-                temp = a[i];
-                a[i] = a[j];
-                a[j] = temp;
-            }
-        }
-    }
+    for(i=0; i<n; i++)
+        sum += a[i][i];
 
-    printf("Array in descending order:\n");
-    for(i = 0; i < n; i++)
-        printf("%d ", a[i]);
+    printf("Diagonal Sum = %d", sum);
 
     return 0;
 }

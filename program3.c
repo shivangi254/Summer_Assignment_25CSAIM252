@@ -1,35 +1,24 @@
 #include <stdio.h>
 
 int main() {
-    int a[100], n, i, key;
-    int low = 0, high, mid;
+    int a[10][10];
+    int r, c, i, j;
 
-    printf("Enter number of elements: ");
-    scanf("%d", &n);
+    printf("Enter rows and columns: ");
+    scanf("%d %d", &r, &c);
 
-    printf("Enter sorted elements:\n");
-    for(i = 0; i < n; i++)
-        scanf("%d", &a[i]);
+    printf("Enter matrix elements:\n");
+    for(i = 0; i < r; i++)
+        for(j = 0; j < c; j++)
+            scanf("%d", &a[i][j]);
 
-    printf("Enter element to search: ");
-    scanf("%d", &key);
-
-    high = n - 1;
-
-    while(low <= high) {
-        mid = (low + high) / 2;
-
-        if(a[mid] == key) {
-            printf("Element found at position %d", mid + 1);
-            return 0;
+    printf("Transpose Matrix:\n");
+    for(i = 0; i < c; i++) {
+        for(j = 0; j < r; j++) {
+            printf("%d ", a[j][i]);
         }
-        else if(a[mid] < key)
-            low = mid + 1;
-        else
-            high = mid - 1;
+        printf("\n");
     }
-
-    printf("Element not found");
 
     return 0;
 }
