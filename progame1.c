@@ -8,13 +8,10 @@ int main() {
     gets(str);
 
     while (str[i] != '\0') {
-        if (str[i] >= 'a' && str[i] <= 'z') {
-            str[i] = str[i] - 32;
-        }
         i++;
     }
 
-    printf("Uppercase string = %s", str);
+    printf("Length of string = %d", i);
 
     return 0;
 }

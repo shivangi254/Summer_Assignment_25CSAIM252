@@ -1,29 +1,23 @@
 #include <stdio.h>
 
 int main() {
-    int a[10][10], n, i, j, flag = 1;
+    char str[100], temp;
+    int i, len = 0;
 
-    printf("Enter order of matrix: ");
-    scanf("%d", &n);
+    printf("Enter a string: ");
+    gets(str);
 
-    printf("Enter matrix elements:\n");
-    for(i=0;i<n;i++)
-        for(j=0;j<n;j++)
-            scanf("%d",&a[i][j]);
-
-    for(i=0;i<n;i++) {
-        for(j=0;j<n;j++) {
-            if(a[i][j] != a[j][i]) {
-                flag = 0;
-                break;
-            }
-        }
+    while (str[len] != '\0') {
+        len++;
     }
 
-    if(flag)
-        printf("Matrix is Symmetric.");
-    else
-        printf("Matrix is Not Symmetric.");
+    for (i = 0; i < len / 2; i++) {
+        temp = str[i];
+        str[i] = str[len - i - 1];
+        str[len - i - 1] = temp;
+    }
+
+    printf("Reversed string = %s", str);
 
     return 0;
 }
