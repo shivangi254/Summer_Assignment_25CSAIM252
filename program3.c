@@ -1,23 +1,22 @@
 #include <stdio.h>
+#include <string.h>
 
 int main() {
-    int a[10][10], r, c, i, j, sum;
+    char str[100], ch;
+    int i, count = 0;
 
-    printf("Enter rows and columns: ");
-    scanf("%d%d",&r,&c);
+    printf("Enter a string: ");
+    fgets(str, sizeof(str), stdin);
 
-    printf("Enter matrix elements:\n");
-    for(i=0;i<r;i++)
-        for(j=0;j<c;j++)
-            scanf("%d",&a[i][j]);
+    printf("Enter a character: ");
+    scanf("%c", &ch);
 
-    printf("Row-wise Sum:\n");
-    for(i=0;i<r;i++) {
-        sum = 0;
-        for(j=0;j<c;j++)
-            sum += a[i][j];
-        printf("Row %d = %d\n", i+1, sum);
+    for(i = 0; str[i] != '\0'; i++) {
+        if(str[i] == ch)
+            count++;
     }
+
+    printf("Frequency of '%c' = %d", ch, count);
 
     return 0;
 }

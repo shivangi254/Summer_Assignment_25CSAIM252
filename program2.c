@@ -1,23 +1,19 @@
 #include <stdio.h>
+#include <string.h>
 
 int main() {
-    char str[100], temp;
-    int i, len = 0;
+    char str[200];
+    int i, words = 1;
 
-    printf("Enter a string: ");
-    gets(str);
+    printf("Enter a sentence: ");
+    fgets(str, sizeof(str), stdin);
 
-    while (str[len] != '\0') {
-        len++;
+    for(i = 0; str[i] != '\0'; i++) {
+        if(str[i] == ' ' && str[i + 1] != ' ' && str[i + 1] != '\0')
+            words++;
     }
 
-    for (i = 0; i < len / 2; i++) {
-        temp = str[i];
-        str[i] = str[len - i - 1];
-        str[len - i - 1] = temp;
-    }
-
-    printf("Reversed string = %s", str);
+    printf("Total Words = %d", words);
 
     return 0;
 }
