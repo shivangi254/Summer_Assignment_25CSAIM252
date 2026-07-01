@@ -2,20 +2,25 @@
 #include <string.h>
 
 int main() {
-    char str[200];
-    int i, j = 0;
+    char str[100];
+    int i, freq[256] = {0};
+    int max = 0;
+    char ch;
 
     printf("Enter a string: ");
-    fgets(str, sizeof(str), stdin);
+    gets(str);
 
     for(i = 0; str[i] != '\0'; i++) {
-        if(str[i] != ' ')
-            str[j++] = str[i];
+        freq[str[i]]++;
     }
 
-    str[j] = '\0';
+    for(i = 0; str[i] != '\0'; i++) {
+        if(freq[str[i]] > max) {
+            max = freq[str[i]];
+            ch = str[i];
+        }
+    }
 
-    printf("String without spaces: %s", str);
-
+    printf("Maximum occurring character = %c", ch);
     return 0;
 }

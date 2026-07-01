@@ -2,18 +2,21 @@
 #include <string.h>
 
 int main() {
-    char str[200];
-    int i, words = 1;
+    char str[100];
+    int i, j;
 
-    printf("Enter a sentence: ");
-    fgets(str, sizeof(str), stdin);
+    printf("Enter a string: ");
+    gets(str);
 
     for(i = 0; str[i] != '\0'; i++) {
-        if(str[i] == ' ' && str[i + 1] != ' ' && str[i + 1] != '\0')
-            words++;
+        for(j = i + 1; str[j] != '\0'; j++) {
+            if(str[i] == str[j]) {
+                printf("First repeating character = %c", str[i]);
+                return 0;
+            }
+        }
     }
 
-    printf("Total Words = %d", words);
-
+    printf("No repeating character found.");
     return 0;
 }

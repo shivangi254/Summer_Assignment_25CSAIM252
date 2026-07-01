@@ -2,23 +2,24 @@
 #include <string.h>
 
 int main() {
-    char str[100], rev[100];
-    int i, len;
+    char str[100];
+    int i, j, count;
 
     printf("Enter a string: ");
-    scanf("%s", str);
+    gets(str);
 
-    len = strlen(str);
-
-    for(i = 0; i < len; i++) {
-        rev[i] = str[len - 1 - i];
+    for(i = 0; str[i] != '\0'; i++) {
+        count = 0;
+        for(j = 0; str[j] != '\0'; j++) {
+            if(str[i] == str[j])
+                count++;
+        }
+        if(count == 1) {
+            printf("First non-repeating character = %c", str[i]);
+            return 0;
+        }
     }
-    rev[len] = '\0';
 
-    if(strcmp(str, rev) == 0)
-        printf("Palindrome String");
-    else
-        printf("Not a Palindrome String");
-
+    printf("No non-repeating character found.");
     return 0;
 }
