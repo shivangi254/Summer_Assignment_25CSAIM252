@@ -1,27 +1,29 @@
 #include <stdio.h>
-#include <string.h>
+#include <stdlib.h>
+#include <time.h>
 
-int main() {
-    char str1[100], str2[100], temp[200];
+int main()
+{
+    int number, guess;
 
-    printf("Enter first string: ");
-    scanf("%s", str1);
+    srand(time(0));
+    number = rand() % 100 + 1;
 
-    printf("Enter second string: ");
-    scanf("%s", str2);
+    printf("Guess a number between 1 and 100\n");
 
-    if (strlen(str1) != strlen(str2)) {
-        printf("Not Rotation");
-        return 0;
-    }
+    do
+    {
+        printf("Enter your guess: ");
+        scanf("%d", &guess);
 
-    strcpy(temp, str1);
-    strcat(temp, str1);
+        if (guess > number)
+            printf("Too High!\n");
+        else if (guess < number)
+            printf("Too Low!\n");
+        else
+            printf("Congratulations! You guessed the correct number.\n");
 
-    if (strstr(temp, str2))
-        printf("Rotation");
-    else
-        printf("Not Rotation");
+    } while (guess != number);
 
     return 0;
 }

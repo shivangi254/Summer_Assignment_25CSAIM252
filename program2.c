@@ -1,21 +1,16 @@
 #include <stdio.h>
-#include <string.h>
 
-int main() {
-    char str[100];
-    int i, count;
+int main()
+{
+    int age;
 
-    printf("Enter string: ");
-    scanf("%s", str);
+    printf("Enter your age: ");
+    scanf("%d", &age);
 
-    for (i = 0; str[i] != '\0'; i++) {
-        count = 1;
-        while (str[i] == str[i + 1]) {
-            count++;
-            i++;
-        }
-        printf("%c%d", str[i], count);
-    }
+    if (age >= 18)
+        printf("You are eligible to vote.\n");
+    else
+        printf("You are not eligible to vote.\n");
 
     return 0;
 }
