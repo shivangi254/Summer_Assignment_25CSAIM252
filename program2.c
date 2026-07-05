@@ -1,16 +1,29 @@
 #include <stdio.h>
 
+struct Employee
+{
+    int id;
+    char name[50];
+    float salary;
+};
+
 int main()
 {
-    int age;
+    struct Employee e;
 
-    printf("Enter your age: ");
-    scanf("%d", &age);
+    printf("Enter Employee ID: ");
+    scanf("%d", &e.id);
 
-    if (age >= 18)
-        printf("You are eligible to vote.\n");
-    else
-        printf("You are not eligible to vote.\n");
+    printf("Enter Employee Name: ");
+    scanf("%s", e.name);
+
+    printf("Enter Salary: ");
+    scanf("%f", &e.salary);
+
+    printf("\n--- Employee Details ---\n");
+    printf("ID     : %d\n", e.id);
+    printf("Name   : %s\n", e.name);
+    printf("Salary : %.2f\n", e.salary);
 
     return 0;
 }

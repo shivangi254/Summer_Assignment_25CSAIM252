@@ -2,32 +2,32 @@
 
 int main()
 {
-    int answer, score = 0;
+    char name[50];
+    int roll;
+    float m1, m2, m3, total, percentage;
 
-    printf("Quiz Application\n");
+    printf("Enter Roll No: ");
+    scanf("%d", &roll);
 
-    printf("\n1. Capital of India?\n");
-    printf("1.Delhi  2.Mumbai  3.Kolkata  4.Chennai\n");
-    scanf("%d", &answer);
+    printf("Enter Name: ");
+    scanf("%s", name);
 
-    if(answer == 1)
-        score++;
+    printf("Enter Marks of 3 Subjects: ");
+    scanf("%f %f %f", &m1, &m2, &m3);
 
-    printf("\n2. C language was developed by?\n");
-    printf("1.Bjarne Stroustrup  2.Dennis Ritchie  3.James Gosling  4.Guido van Rossum\n");
-    scanf("%d", &answer);
+    total = m1 + m2 + m3;
+    percentage = total / 3;
 
-    if(answer == 2)
-        score++;
+    printf("\n----- Marksheet -----\n");
+    printf("Roll No    : %d\n", roll);
+    printf("Name       : %s\n", name);
+    printf("Total      : %.2f\n", total);
+    printf("Percentage : %.2f%%\n", percentage);
 
-    printf("\n3. 5 + 7 = ?\n");
-    printf("1.10  2.11  3.12  4.13\n");
-    scanf("%d", &answer);
-
-    if(answer == 3)
-        score++;
-
-    printf("\nYour Score = %d/3\n", score);
+    if (percentage >= 40)
+        printf("Result     : PASS\n");
+    else
+        printf("Result     : FAIL\n");
 
     return 0;
 }

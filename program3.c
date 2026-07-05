@@ -2,67 +2,25 @@
 
 int main()
 {
-    int choice, pin = 1234, enteredPin;
-    float balance = 10000.0, amount;
+    char name[50];
+    float basic, hra, da, gross;
 
-    printf("===== ATM SIMULATION =====\n");
+    printf("Enter Employee Name: ");
+    scanf("%s", name);
 
-    printf("Enter ATM PIN: ");
-    scanf("%d", &enteredPin);
+    printf("Enter Basic Salary: ");
+    scanf("%f", &basic);
 
-    if (enteredPin != pin)
-    {
-        printf("Invalid PIN!\n");
-        return 0;
-    }
+    hra = basic * 0.20;
+    da = basic * 0.10;
+    gross = basic + hra + da;
 
-    do
-    {
-        printf("\n===== ATM MENU =====\n");
-        printf("1. Check Balance\n");
-        printf("2. Deposit Money\n");
-        printf("3. Withdraw Money\n");
-        printf("4. Exit\n");
-        printf("Enter your choice: ");
-        scanf("%d", &choice);
-
-        switch (choice)
-        {
-            case 1:
-                printf("Current Balance = Rs. %.2f\n", balance);
-                break;
-
-            case 2:
-                printf("Enter amount to deposit: ");
-                scanf("%f", &amount);
-                balance += amount;
-                printf("Deposit Successful!\n");
-                break;
-
-            case 3:
-                printf("Enter amount to withdraw: ");
-                scanf("%f", &amount);
-
-                if (amount <= balance)
-                {
-                    balance -= amount;
-                    printf("Withdrawal Successful!\n");
-                }
-                else
-                {
-                    printf("Insufficient Balance!\n");
-                }
-                break;
-
-            case 4:
-                printf("Thank You for Using ATM!\n");
-                break;
-
-            default:
-                printf("Invalid Choice!\n");
-        }
-
-    } while (choice != 4);
+    printf("\n--- Salary Details ---\n");
+    printf("Employee Name : %s\n", name);
+    printf("Basic Salary  : %.2f\n", basic);
+    printf("HRA           : %.2f\n", hra);
+    printf("DA            : %.2f\n", da);
+    printf("Gross Salary  : %.2f\n", gross);
 
     return 0;
 }
