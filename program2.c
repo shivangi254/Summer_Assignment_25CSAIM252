@@ -1,29 +1,35 @@
 #include <stdio.h>
 
-struct Employee
-{
-    int id;
+int main() {
+    int accNo;
     char name[50];
-    float salary;
-};
+    float balance, deposit, withdraw;
 
-int main()
-{
-    struct Employee e;
+    printf("Enter Account Number: ");
+    scanf("%d", &accNo);
 
-    printf("Enter Employee ID: ");
-    scanf("%d", &e.id);
+    printf("Enter Name: ");
+    scanf("%s", name);
 
-    printf("Enter Employee Name: ");
-    scanf("%s", e.name);
+    printf("Enter Initial Balance: ");
+    scanf("%f", &balance);
 
-    printf("Enter Salary: ");
-    scanf("%f", &e.salary);
+    printf("Enter Deposit Amount: ");
+    scanf("%f", &deposit);
+    balance += deposit;
 
-    printf("\n--- Employee Details ---\n");
-    printf("ID     : %d\n", e.id);
-    printf("Name   : %s\n", e.name);
-    printf("Salary : %.2f\n", e.salary);
+    printf("Enter Withdraw Amount: ");
+    scanf("%f", &withdraw);
+
+    if(withdraw <= balance)
+        balance -= withdraw;
+    else
+        printf("Insufficient Balance!\n");
+
+    printf("\nAccount Details\n");
+    printf("Account No: %d\n", accNo);
+    printf("Name: %s\n", name);
+    printf("Balance: %.2f\n", balance);
 
     return 0;
 }

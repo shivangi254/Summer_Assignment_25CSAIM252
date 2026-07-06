@@ -1,26 +1,20 @@
 #include <stdio.h>
 
-int main()
-{
-    char name[50];
-    float basic, hra, da, gross;
+int main() {
+    int seats = 50;
+    int book;
 
-    printf("Enter Employee Name: ");
-    scanf("%s", name);
+    printf("Available Seats: %d\n", seats);
+    printf("Enter Seats to Book: ");
+    scanf("%d", &book);
 
-    printf("Enter Basic Salary: ");
-    scanf("%f", &basic);
-
-    hra = basic * 0.20;
-    da = basic * 0.10;
-    gross = basic + hra + da;
-
-    printf("\n--- Salary Details ---\n");
-    printf("Employee Name : %s\n", name);
-    printf("Basic Salary  : %.2f\n", basic);
-    printf("HRA           : %.2f\n", hra);
-    printf("DA            : %.2f\n", da);
-    printf("Gross Salary  : %.2f\n", gross);
+    if(book <= seats) {
+        seats -= book;
+        printf("Booking Successful!\n");
+        printf("Remaining Seats: %d\n", seats);
+    } else {
+        printf("Not enough seats available.\n");
+    }
 
     return 0;
 }

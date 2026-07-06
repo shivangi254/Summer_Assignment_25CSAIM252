@@ -1,33 +1,29 @@
 #include <stdio.h>
 
-int main()
-{
+struct Contact {
     char name[50];
-    int roll;
-    float m1, m2, m3, total, percentage;
+    char phone[15];
+};
 
-    printf("Enter Roll No: ");
-    scanf("%d", &roll);
+int main() {
+    struct Contact c[3];
+    int i;
 
-    printf("Enter Name: ");
-    scanf("%s", name);
+    printf("Enter Contact Details:\n");
 
-    printf("Enter Marks of 3 Subjects: ");
-    scanf("%f %f %f", &m1, &m2, &m3);
+    for(i=0;i<3;i++) {
+        printf("\nName: ");
+        scanf("%s", c[i].name);
 
-    total = m1 + m2 + m3;
-    percentage = total / 3;
+        printf("Phone: ");
+        scanf("%s", c[i].phone);
+    }
 
-    printf("\n----- Marksheet -----\n");
-    printf("Roll No    : %d\n", roll);
-    printf("Name       : %s\n", name);
-    printf("Total      : %.2f\n", total);
-    printf("Percentage : %.2f%%\n", percentage);
+    printf("\nContact List:\n");
 
-    if (percentage >= 40)
-        printf("Result     : PASS\n");
-    else
-        printf("Result     : FAIL\n");
+    for(i=0;i<3;i++) {
+        printf("Name: %s\tPhone: %s\n", c[i].name, c[i].phone);
+    }
 
     return 0;
 }
