@@ -1,35 +1,55 @@
 #include <stdio.h>
 
 int main() {
-    int accNo;
-    char name[50];
-    float balance, deposit, withdraw;
+    int a[100], n, i, choice, sum = 0;
 
-    printf("Enter Account Number: ");
-    scanf("%d", &accNo);
+    printf("Enter size of array: ");
+    scanf("%d", &n);
 
-    printf("Enter Name: ");
-    scanf("%s", name);
+    printf("Enter elements:\n");
+    for(i = 0; i < n; i++)
+        scanf("%d", &a[i]);
 
-    printf("Enter Initial Balance: ");
-    scanf("%f", &balance);
+    do {
+        printf("\n1. Display Array\n");
+        printf("2. Sum of Elements\n");
+        printf("3. Find Maximum\n");
+        printf("4. Exit\n");
+        printf("Enter choice: ");
+        scanf("%d", &choice);
 
-    printf("Enter Deposit Amount: ");
-    scanf("%f", &deposit);
-    balance += deposit;
+        switch(choice) {
+            case 1:
+                for(i = 0; i < n; i++)
+                    printf("%d ", a[i]);
+                printf("\n");
+                break;
 
-    printf("Enter Withdraw Amount: ");
-    scanf("%f", &withdraw);
+            case 2:
+                sum = 0;
+                for(i = 0; i < n; i++)
+                    sum += a[i];
+                printf("Sum = %d\n", sum);
+                break;
 
-    if(withdraw <= balance)
-        balance -= withdraw;
-    else
-        printf("Insufficient Balance!\n");
+            case 3: {
+                int max = a[0];
+                for(i = 1; i < n; i++)
+                    if(a[i] > max)
+                        max = a[i];
+                printf("Maximum = %d\n", max);
+                break;
+            }
 
-    printf("\nAccount Details\n");
-    printf("Account No: %d\n", accNo);
-    printf("Name: %s\n", name);
-    printf("Balance: %.2f\n", balance);
+            case 4:
+                printf("Exit\n");
+                break;
+
+            default:
+                printf("Invalid Choice\n");
+        }
+
+    } while(choice != 4);
 
     return 0;
 }
