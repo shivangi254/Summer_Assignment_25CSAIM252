@@ -1,57 +1,32 @@
 #include <stdio.h>
-#include <string.h>
 
 int main() {
-    char str1[100], str2[100];
-    int choice;
+    int n, i;
+    int id[50];
+    char name[50][50];
+    float salary[50];
 
-    printf("Enter first string: ");
-    scanf("%s", str1);
+    printf("Enter number of employees: ");
+    scanf("%d", &n);
 
-    do {
-        printf("\n1. Length\n");
-        printf("2. Copy\n");
-        printf("3. Concatenate\n");
-        printf("4. Compare\n");
-        printf("5. Exit\n");
-        printf("Enter choice: ");
-        scanf("%d", &choice);
+    for(i = 0; i < n; i++) {
+        printf("\nEmployee %d\n", i + 1);
 
-        switch(choice) {
-            case 1:
-                printf("Length = %lu\n", strlen(str1));
-                break;
+        printf("Enter ID: ");
+        scanf("%d", &id[i]);
 
-            case 2:
-                strcpy(str2, str1);
-                printf("Copied String = %s\n", str2);
-                break;
+        printf("Enter Name: ");
+        scanf("%s", name[i]);
 
-            case 3:
-                printf("Enter second string: ");
-                scanf("%s", str2);
-                strcat(str1, str2);
-                printf("Concatenated String = %s\n", str1);
-                break;
+        printf("Enter Salary: ");
+        scanf("%f", &salary[i]);
+    }
 
-            case 4:
-                printf("Enter second string: ");
-                scanf("%s", str2);
-                if(strcmp(str1, str2) == 0)
-                    printf("Strings are Equal\n");
-                else
-                    printf("Strings are Not Equal\n");
-                break;
-
-            case 5:
-                printf("Exit\n");
-                break;
-
-            default:
-                printf("Invalid Choice\n");
-        }
-
-    } while(choice != 5);
+    printf("\n----- Employee Records -----\n");
+    for(i = 0; i < n; i++) {
+        printf("ID: %d\tName: %s\tSalary: %.2f\n",
+               id[i], name[i], salary[i]);
+    }
 
     return 0;
 }

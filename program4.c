@@ -1,43 +1,37 @@
 #include <stdio.h>
 
-struct Item {
-    int id;
-    char name[30];
-    int qty;
-    float price;
-};
+void display(int roll[], char name[][50], float marks[], int n) {
+    int i;
+    printf("\n----- Student Records -----\n");
+    for(i = 0; i < n; i++) {
+        printf("Roll: %d\tName: %s\tMarks: %.2f\n",
+               roll[i], name[i], marks[i]);
+    }
+}
 
 int main() {
-    struct Item item[10];
     int n, i;
+    int roll[50];
+    char name[50][50];
+    float marks[50];
 
-    printf("Enter number of items: ");
+    printf("Enter number of students: ");
     scanf("%d", &n);
 
     for(i = 0; i < n; i++) {
-        printf("\nItem %d\n", i + 1);
+        printf("\nStudent %d\n", i + 1);
 
-        printf("Enter ID: ");
-        scanf("%d", &item[i].id);
+        printf("Enter Roll No: ");
+        scanf("%d", &roll[i]);
 
         printf("Enter Name: ");
-        scanf("%s", item[i].name);
+        scanf("%s", name[i]);
 
-        printf("Enter Quantity: ");
-        scanf("%d", &item[i].qty);
-
-        printf("Enter Price: ");
-        scanf("%f", &item[i].price);
+        printf("Enter Marks: ");
+        scanf("%f", &marks[i]);
     }
 
-    printf("\n----- Inventory Details -----\n");
-
-    for(i = 0; i < n; i++) {
-        printf("ID: %d\n", item[i].id);
-        printf("Name: %s\n", item[i].name);
-        printf("Quantity: %d\n", item[i].qty);
-        printf("Price: %.2f\n\n", item[i].price);
-    }
+    display(roll, name, marks, n);
 
     return 0;
 }

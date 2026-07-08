@@ -1,29 +1,32 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
 
-int main()
-{
-    int number, guess;
+int main() {
+    int n, i;
+    char name[50][50];
+    int roll[50];
+    float marks[50];
 
-    srand(time(0));
-    number = rand() % 100 + 1;
+    printf("Enter number of students: ");
+    scanf("%d", &n);
 
-    printf("Guess a number between 1 and 100\n");
+    for(i = 0; i < n; i++) {
+        printf("\nStudent %d\n", i + 1);
 
-    do
-    {
-        printf("Enter your guess: ");
-        scanf("%d", &guess);
+        printf("Enter Roll No: ");
+        scanf("%d", &roll[i]);
 
-        if (guess > number)
-            printf("Too High!\n");
-        else if (guess < number)
-            printf("Too Low!\n");
-        else
-            printf("Congratulations! You guessed the correct number.\n");
+        printf("Enter Name: ");
+        scanf("%s", name[i]);
 
-    } while (guess != number);
+        printf("Enter Marks: ");
+        scanf("%f", &marks[i]);
+    }
+
+    printf("\n----- Student Records -----\n");
+    for(i = 0; i < n; i++) {
+        printf("Roll: %d\tName: %s\tMarks: %.2f\n",
+               roll[i], name[i], marks[i]);
+    }
 
     return 0;
 }
